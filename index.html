@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Odoo Card</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <div class="card border border-gray-300" style="min-width:600px; max-width:768px; margin: 105px auto;">
+      
+      <!-- V1 TabBar -->
+      <!-- <div class="card-header">
+        <div class="nav gap-2" role="tablist">
+          <button class="btn btn-dark active" data-bs-toggle="tab" data-bs-target="#tab1" aria-selected="true">Tab 1</button>
+          <button class="btn btn-dark" data-bs-toggle="tab" data-bs-target="#tab2" aria-selected="false">Tab 2</button>
+          <button class="btn btn-dark" data-bs-toggle="tab" data-bs-target="#tab3" aria-selected="false">Tab 3</button>
+          <button class="btn btn-dark disabled">Tab 4</button>
+        </div>
+      </div> -->
+
+      <!-- V2 TabBar -->
+      <div class="card-header">
+        <div class="list-group list-group-horizontal gap-2" role="tablist">
+          <a href="#" class="list-group-item list-group-action active" data-bs-toggle="tab" data-bs-target="#tab1" role="tab" aria-selected="true">Tab 1</a>
+          <a href="#" class="list-group-item list-group-action" data-bs-toggle="tab" data-bs-target="#tab2" role="tab" aria-selected="false">Tab 2</a>
+          <a href="#" class="list-group-item list-group-action" data-bs-toggle="tab" data-bs-target="#tab3" role="tab" aria-selected="false">Tab 3</a>
+          <a href="#" class="list-group-item list-group-action disabled" role="tab" aria-selected="false">Disabled</a>
+        </div>
+      </div>
+
+      <div class="card-body tab-content">
+
+        <!-- Tab 1 Content -->
+        <div class="tab-pane show active" id="tab1" role="tabpanel">
+          <div class="card-body m-3">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle text-muted">Card subtitle</h6>
+          </div>
+
+          <div class="d-flex flex-column flex-md-row">
+              <!-- Left Column -->
+              <nav class="w-100 " aria-label="Tab Navigation">
+                  <ul class="pagination flex-column m-0" role="tablist">
+                      <li class="page-item"><a class="page-link active" href="#" id="tab1-link" data-bs-toggle="tab" role="tab" data-bs-target="#pic1" aria-controls="pic1" aria-selected="false">An item</a></li>
+                      <li class="page-item"><a class="page-link" href="#" id="tab2-link" data-bs-toggle="tab" role="tab" data-bs-target="#pic2" aria-controls="pic2" aria-selected="false">A second item</a></li>
+                      <li class="page-item"><a class="page-link" href="#" id="tab3-link" data-bs-toggle="tab" role="tab" data-bs-target="#pic3" aria-controls="pic3" aria-selected="false">A third item</a></li>
+                  </ul>
+              </nav>
+            
+              <!-- Right Column -->
+              <div class="tab-content w-100 w-md-50">
+                  <div class="tab-pane show active" id="pic1" role="tabpanel">
+                      <img src="https://placehold.co/387x200/blue/white?text=Pic-1" class="img-fluid w-100" alt="Image">
+                  </div>
+                  <div class="tab-pane" id="pic2" role="tabpanel">
+                      <img src="https://placehold.co/387x200/yellow/black?text=Pic-2" class="img-fluid w-100" alt="Image">
+                  </div>
+                  <div class="tab-pane" id="pic3" role="tabpanel">
+                      <img src="https://placehold.co/387x200/black/white?text=Pic-3" class="img-fluid w-100" alt="Image">
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- Tab 2 Content -->
+        <div class="tab-pane m-5" id="tab2" role="tabpanel">
+          <p class="d-flex justify-content-center">Loading...</p>
+          <div class="d-flex justify-content-center position-relative">
+            <div class="spinner-border" role="status" style="width: 4rem; height: 4rem; border-width: 0.25rem; border-color:transparent; border-top-color:black;">
+              <span style="background-color: black; width:0.25rem; height: 0.25rem; position: absolute; border-radius: 0.25em; transform: translate(0.30rem,0.30rem);"></span>
+              <span style="background-color: black; width:0.25rem; height: 0.25rem; position: absolute; border-radius: 0.25em; transform: translate(2.95rem,0.30rem);"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3 Content -->
+        <div class="tab-pane" id="tab3" role="tabpanel">
+          <div class="d-flex align-items-center">
+              <img src="https://placehold.co/175x195/red/white?text=IMAGE" class="img-fluid" alt="Image">
+            
+              <div class="m-3">
+                <h5 class="card-title mb-2">Card title</h5>
+                <p class="card-text mb-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text mb-0"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+          </div>
+        </div>
+      
+      </div>
+
+      <!-- Card Footer -->
+      <div class="card-footer pb-2">2 days ago</div>
+
+    </div>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
