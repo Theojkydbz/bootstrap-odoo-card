@@ -1,15 +1,45 @@
 // Custom colors
-$secondary: #65588f;
+$white:     #fff;
+$gray-100:  #FAF8F9;
+$gray-200:  #efecee;
+$gray-300:  #e7dfe5;
+$gray-400:  #DACED7;
+$gray-500:  #BDADB9;
+$gray-600:  #7D6C78;
+$gray-700:  #574953;
+$gray-800:  #40343D;
+$gray-900:  #292127;
+$black:     #000;
+$brand:     #704B66;
+$secondary:   $gray-700;
+$primary:     $gray-900;
+
+$custom-colors: (
+    "white":        $white,
+    "gray-100":     $gray-100,
+    "gray-200":     $gray-200,
+    "gray-300":     $gray-300,
+    "gray-400":     $gray-400,
+    "gray-500":     $gray-500,
+    "gray-600":     $gray-600,
+    "gray-700":     $gray-700,
+    "gray-800":     $gray-800,
+    "gray-900":     $gray-900,
+    "black":        $black,
+    "secondary":    $gray-700,
+    "primary":      $gray-900
+); $theme-colors: map-merge($theme-colors, $custom-colors);
+
 
 // Typography
-$font-family-sans-serif: 'Helvetica Neue', Arial, sans-serif;
-$font-weight-normal: 400;
-$font-weight-bold: 700;
+$font-family-sans-serif:    'Helvetica Neue', Arial, sans-serif;
+$font-weight-normal:        400;
+$font-weight-bold:          700;
 
 // Options
-$enable-rounded: false;
-$enable-important-utilities: false;
-$spacer: 20px;
+$border-radius:                 0.65rem;
+$enable-important-utilities:    false;
+$spacer:                        20px;
 
 // Body
 $body-color: $gray-900;
@@ -19,48 +49,51 @@ $grid-gutter-width: 0;
 
 // Card General
 $card-bg: $white;
-$card-border-width: 0;
-$card-cap-padding-y: $spacer * 0.5 $spacer * 0.5;
-$card-cap-padding-x: $spacer * 0 $spacer * 0.5;
-$card-cap-color: $white;
-$card-cap-bg: $gray-800;
-$enable-shadows: false;
+$card-border-width:     0;
+$card-cap-padding-y:    $spacer * 0.5;
+$card-cap-padding-x:    $spacer * 0.5;
+$card-cap-color:        $white;
+$card-cap-bg:           $gray-900;
+$enable-shadows:        false;
 
 // V1-TABBAR-btn-dark 
-// $gray-900: #DEE2E6;
-// $btn-active-bg-tint-amount: 100%;
-// $btn-active-border-tint-amount: 100%;
-// $btn-disabled-opacity: 35%;
-// $btn-padding-x: 20px;
+// $gray-900:                       #DEE2E6;
+// $btn-active-bg-tint-amount:      100%;
+// $btn-active-border-tint-amount:  100%;
+// $btn-disabled-opacity:           35%;
+// $btn-padding-x:                  20px;
 
 // V2-TABBAR-list-group
-$list-group-active-color: $gray-800;
-$list-group-active-bg: $white;
+// $list-group-active-color:    $primary;
+// $list-group-active-bg:       $white;
 
-$list-group-color: $secondary;
-$list-group-bg: $gray-300;
-$list-group-disabled-bg: $gray-600;
-$list-group-disabled-color: $gray-200;
-$list-group-border-width: 0;
+// $list-group-color:   $secondary;
+// $list-group-bg:      $gray-200;
+
+// $list-group-disabled-bg:     $gray-600;
+// $list-group-disabled-color:  $gray-200;
+// $list-group-border-width:    0;
 
 // Card spacing
 $card-spacer-y: 0;
 $card-spacer-x: 0;
 
-// V2Tab1NAV
+// V2-TAB1-NAV
+$pagination-border-radius: none;
+
 $pagination-padding-x: $spacer;
 $pagination-padding-y: $spacer;
 
-$pagination-border-width: 1px;
-$pagination-bg: $white;
-$pagination-border-color: $gray-300;
-$link-color: $secondary;
+$pagination-border-width:           1px;
+$pagination-bg:                     $white;
+$pagination-border-color:           $gray-200;
+$link-color:                        $secondary;
 
-$link-hover-color: darken(saturate(adjust-hue($secondary, -9), 10.31), 11.96);
-$pagination-hover-bg: none;
+$link-hover-color:                  darken(saturate(adjust-hue($secondary, -9), 10.31), 11.96);
+$pagination-hover-bg:               $gray-100;
 
-$pagination-active-bg: $white;
-$pagination-active-color: $gray-800;
-$pagination-active-border-color: $gray-300;
-$pagination-focus-box-shadow: none;
-$pagination-focus-bg: none;
+$pagination-active-bg:              $gray-200;
+$pagination-active-color:           $primary;
+$pagination-active-border-color:    $gray-200;
+$pagination-focus-box-shadow:       none;
+$pagination-focus-bg:               none;

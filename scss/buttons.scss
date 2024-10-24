@@ -1,0 +1,17 @@
+.btn-light {
+    --bs-btn-bg: var(--bs-gray-800);
+    --bs-btn-color: var(--bs-white);
+
+    --bs-btn-active-bg: var(--bs-white);
+    --bs-btn-active-color: var(--bs-primary);
+
+    --bs-btn-border-width: none;
+
+    --bs-btn-hover-bg: var(--bs-gray-300);
+    --bs-btn-hover-color: var(--bs-primary);
+
+    --bs-btn-focus-shadow-rgb: var(--bs-white);
+
+    --bs-btn-disabled-bg: var(--bs-gray-800);
+    --bs-btn-disabled-color: var(--bs-gray-500);
+}
