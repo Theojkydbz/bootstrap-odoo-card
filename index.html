@@ -9,28 +9,8 @@
 <body>
 
     <div class="card border border-gray-300" style="min-width:600px; max-width:768px; margin: 105px auto;">
-      
-      <!-- V1 TabBar -->
-      <!-- <div class="card-header">
-        <div class="nav gap-2" role="tablist">
-          <button class="btn btn-dark active" data-bs-toggle="tab" data-bs-target="#tab1" aria-selected="true">Tab 1</button>
-          <button class="btn btn-dark" data-bs-toggle="tab" data-bs-target="#tab2" aria-selected="false">Tab 2</button>
-          <button class="btn btn-dark" data-bs-toggle="tab" data-bs-target="#tab3" aria-selected="false">Tab 3</button>
-          <button class="btn btn-dark disabled">Tab 4</button>
-        </div>
-      </div> -->
 
-      <!-- V2 TabBar
-      <div class="card-header">
-        <div class="list-group list-group-horizontal gap-2" role="tablist">
-          <button href="#" class="btn btn-light list-group-action active" data-bs-toggle="tab" data-bs-target="#tab1" role="tab" aria-selected="true">Tab 1</button>
-          <button href="#" class="btn btn-light list-group-action" data-bs-toggle="tab" data-bs-target="#tab2" role="tab" aria-selected="false">Tab 2</button>
-          <button href="#" class="btn btn-light list-group-action" data-bs-toggle="tab" data-bs-target="#tab3" role="tab" aria-selected="false">Tab 3</button>
-          <button href="#" class="btn btn-light list-group-action disabled" role="tab" aria-selected="false">Disabled</button>
-        </div>
-      </div> -->
-
-      <!-- V3 TabBar -->
+      <!-- TabBar -->
       <ul class="nav card-header gap-2">
         <li class="nav-item">
           <button class="btn btn-light active" data-bs-toggle="tab" data-bs-target="#tab1" role="tab" aria-selected="true">Tab 1</a>
@@ -106,9 +86,53 @@
       </div>
 
       <!-- Card Footer -->
-      <div class="card-footer pb-2">2 days ago</div>
+      <div class="card-footer pb-2"><p class="m-0">2 days ago</p></div>
 
     </div>
+
+    <!-- Contextual Selector -->
+    <div class="d-flex flex-wrap justify-content-center my-3" style="width:100%; min-width:600px; max-width:768px; margin: 75px auto;">
+      <button class="btn btn-primary mx-1 mb-2" data-context="">Default</button>
+      <button class="btn btn-primary mx-1 mb-2" data-context="card-primary">Primary</button>
+      <button class="btn btn-secondary mx-1 mb-2" data-context="card-secondary">Secondary</button>
+      <button class="btn btn-success mx-1 mb-2" data-context="card-success">Success</button>
+      <button class="btn btn-danger mx-1 mb-2" data-context="card-danger">Danger</button>
+      <button class="btn btn-warning mx-1 mb-2" data-context="card-warning">Warning</button>
+      <button class="btn btn-info mx-1 mb-2" data-context="card-info">Info</button>
+      <button class="btn btn-light mx-1 mb-2" data-context="card-light">Light</button>
+      <button class="btn btn-dark mx-1 mb-2" data-context="card-dark">Dark</button>
+    </div>
+
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const contextualClasses = [
+      'card-primary',
+      'card-secondary',
+      'card-success',
+      'card-danger',
+      'card-warning',
+      'card-info',
+      'card-light',
+      'card-dark'
+    ];
+
+    const card = document.querySelector('.card');
+
+    function toggleCardContextClass(newClass) {
+      contextualClasses.forEach(contextualClass => {
+        card.classList.remove(contextualClass);
+      });
+
+      card.classList.add(newClass);
+    }
+
+    document.querySelectorAll('button[data-context]').forEach(button => {
+      button.addEventListener('click', function () {
+        const newClass = this.getAttribute('data-context');
+        toggleCardContextClass(newClass);
+      });
+    });
+  </script>
 </body>
 </html>

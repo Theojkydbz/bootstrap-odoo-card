@@ -1,0 +1,94 @@
+// Due to time constraints, this implementation is kept succinct but functional. 
+// It ensures basic contrast and color adjustments (darken/lighten).
+// 
+// Further optimization for VariantD could include:
+// 1. Enhancing contrast adjustments for specific color contexts.
+// 2. Adding accessibility considerations for low contrast colors.
+// 3. Improving hover and active states for better visual feedback.
+// 4. Fine-tuning the text color handling for more precise control based on $color lightness.
+
+@mixin contextual-variant($color) {
+    $background-color: map-get($theme-colors, $color);
+    $text-color: if(lightness($background-color) > 30%, $gray-900, $white);
+    $valid-background-color: if(type-of($background-color) == 'color', $background-color, color($background-color));
+
+    background-color: var(--bs-#{$color}-bg, $valid-background-color);
+    color: var(--bs-#{$color}-color, $text-color);
+
+    .card-header {
+        background-color: var(--bs-#{$color}-header-bg, darken($valid-background-color, 80%));
+        color: var(--bs-#{$color}-header-color, $text-color);
+    }
+
+    .card-body {
+        background-color: var(--bs-#{$color}-body-bg, $valid-background-color);
+        color: var(--bs-#{$color}-body-color, $text-color);
+    }
+
+    .card-footer {
+        background-color: var(--bs-#{$color}-footer-bg, darken($valid-background-color, 80%));
+        color: var(--bs-#{$color}-footer-color, $text-color);
+    }
+
+    .text-muted {
+        color: var(--bs-#{$color}-body-color, #{transparentize($text-color, 0.4)});
+    }
+
+    .nav-tabs .nav-link {
+        background-color: var(--bs-#{$color}-bg, lighten($valid-background-color, 15%));
+        color: var(--bs-#{$color}-color, $text-color);
+        border: 1px solid var(--bs-#{$color}-border-color, darken($valid-background-color, 10%));
+    }
+
+    .nav-tabs .nav-link.active {
+        background-color: var(--bs-#{$color}-active-bg, darken($valid-background-color, 10%));
+        color: var(--bs-#{$color}-active-color, $text-color);
+    }
+
+    .pagination .page-link {
+        background-color: var(--bs-#{$color}-bg, lighten($valid-background-color, 25%));
+        color: var(--bs-#{$color}-color, $text-color);
+        border: 1px solid var(--bs-#{$color}-border-color, $gray-300);
+
+        &:hover {
+            background-color: var(--bs-#{$color}-bg, lighten($valid-background-color, 15%));
+        }
+
+        &:active,
+        &.active {
+            background-color: var(--bs-#{$color}-active-bg, lighten($valid-background-color, 10%));
+            color: var(--bs-#{$color}-active-color, $text-color);
+        }
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: var(--bs-#{$color}-active-bg, darken($valid-background-color, 10%));
+        color: var(--bs-#{$color}-active-color, $text-color);
+        border-color: var(--bs-#{$color}-active-border-color, darken($valid-background-color, 15%));
+    }
+
+    .btn-light {
+        background-color: var(--bs-#{$color}-bg, $valid-background-color);
+        color: var(--bs-#{$color}-color, $text-color);
+
+        &:hover {
+            background-color: var(--bs-#{$color}-hover-bg, lighten($valid-background-color, 15%));
+            color: var(--bs-#{$color}-hover-color, $text-color);
+        }
+
+        &:active,
+        &.active {
+            background-color: var(--bs-#{$color}-active-bg, lighten($valid-background-color, 100%));
+            color: var(--bs-#{$color}-active-color, $gray-900);
+        }
+    }
+}
+
+.card-primary { @include contextual-variant('primary'); }
+.card-secondary { @include contextual-variant('secondary'); }
+.card-success { @include contextual-variant('success'); }
+.card-danger { @include contextual-variant('danger'); }
+.card-warning { @include contextual-variant('warning'); }
+.card-info { @include contextual-variant('info'); }
+.card-light { @include contextual-variant('light'); }
+.card-dark { @include contextual-variant('dark'); }
